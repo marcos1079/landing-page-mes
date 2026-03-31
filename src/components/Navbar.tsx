@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ShieldCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo.jpeg";
 
 interface Props {
   isAdmin: boolean;
