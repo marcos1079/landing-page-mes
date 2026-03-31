@@ -1,11 +1,12 @@
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import logo from "@/assets/logo.jpeg";
 
 const Footer = () => (
   <footer className="py-16" style={{ background: "var(--hero-gradient)" }}>
     <div className="container">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         <div>
-          <h3 className="text-xl font-bold text-primary-foreground mb-4 font-sans">M&S Transporte e Turismo</h3>
+          <img src={logo} alt="M&S Transporte e Turismo" className="h-12 mb-4 brightness-0 invert" />
           <p className="text-primary-foreground/60 leading-relaxed">
             Transporte executivo com conforto, segurança e pontualidade. Sua viagem começa aqui.
           </p>
