@@ -34,7 +34,7 @@ const Footer = () => (
       </div>
 
       <div className="border-t border-primary-foreground/10 mt-12 pt-8 text-center text-primary-foreground/40 text-sm">
-        © {new Date().getFullYear()} VanExpress. Todos os direitos reservados.
+        © {new Date().getFullYear()} M&S Transporte e Turismo. Todos os direitos reservados.
       </div>
     </div>
   </footer>
