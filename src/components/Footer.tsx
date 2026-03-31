@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import logo from "@/assets/logo.jpeg";
 
 const Footer = () => (
   <footer className="py-16" style={{ background: "var(--hero-gradient)" }}>
