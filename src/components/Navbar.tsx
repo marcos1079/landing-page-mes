@@ -21,7 +21,7 @@ const Navbar = ({ isAdmin, onToggleAdmin }: Props) => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border/50">
       <div className="container flex items-center justify-between h-16">
         <a href="#" className="text-xl font-bold text-foreground font-display">
-          Van<span className="text-accent">Express</span>
+          M&S <span className="text-accent">Transporte e Turismo</span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">

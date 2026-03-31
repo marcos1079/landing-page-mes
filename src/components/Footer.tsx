@@ -5,7 +5,7 @@ const Footer = () => (
     <div className="container">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         <div>
-          <h3 className="text-xl font-bold text-primary-foreground mb-4 font-sans">VanExpress</h3>
+          <h3 className="text-xl font-bold text-primary-foreground mb-4 font-sans">M&S Transporte e Turismo</h3>
           <p className="text-primary-foreground/60 leading-relaxed">
             Transporte executivo com conforto, segurança e pontualidade. Sua viagem começa aqui.
           </p>
@@ -34,7 +34,7 @@ const Footer = () => (
       </div>
 
       <div className="border-t border-primary-foreground/10 mt-12 pt-8 text-center text-primary-foreground/40 text-sm">
-        © {new Date().getFullYear()} VanExpress. Todos os direitos reservados.
+        © {new Date().getFullYear()} M&S Transporte e Turismo. Todos os direitos reservados.
       </div>
     </div>
   </footer>
