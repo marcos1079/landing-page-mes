@@ -31,6 +31,15 @@ const Footer = () => (
           >
             <MessageCircle className="w-5 h-5" /> Fale Conosco
           </a>
+          <a
+            href="https://www.instagram.com/mstransporteeturismo?igsh=MXNoNzVuMnh5eHp3YQ=="
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent/20 text-accent hover:bg-accent/30 transition-colors font-semibold"
+          >
+            <Instagram className="w-5 h-5" /> @mstransporteeturismo
+          </a>
+          </a>
         </div>
       </div>
 
