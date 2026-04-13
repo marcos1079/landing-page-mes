@@ -15,16 +15,16 @@ const Footer = () => (
         <div>
           <h4 className="font-semibold text-primary-foreground mb-4 font-sans">Contato</h4>
           <ul className="space-y-3 text-primary-foreground/70">
-            <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-accent" /> (11) 99999-0000</li>
+            <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-accent" /> (63) 98434-7495</li>
             <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-accent" /> contato@vanexpress.com.br</li>
-            <li className="flex items-center gap-2"><MapPin className="w-4 h-4 text-accent" /> São Paulo, SP</li>
+            <li className="flex items-center gap-2"><MapPin className="w-4 h-4 text-accent" /> Palmas, TO</li>
           </ul>
         </div>
 
         <div>
           <h4 className="font-semibold text-primary-foreground mb-4 font-sans">WhatsApp</h4>
           <a
-            href="https://wa.me/5511999990000"
+            href="https://wa.me/5563984347495"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent/20 text-accent hover:bg-accent/30 transition-colors font-semibold"
