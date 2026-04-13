@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import DifferentialsSection from "@/components/DifferentialsSection";
-import AvailabilitySection, { type DayAvailability, type TimeSlot } from "@/components/AvailabilitySection";
+import VideoSection from "@/components/VideoSection";
 import BookingForm from "@/components/BookingForm";
 import Footer from "@/components/Footer";
 
