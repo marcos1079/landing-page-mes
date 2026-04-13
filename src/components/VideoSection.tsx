@@ -54,7 +54,7 @@ const VideoSection = () => {
             muted
             loop
             playsInline
-            className="w-full aspect-video object-contain bg-black"
+            className="w-full aspect-video object-contain rounded-2xl bg-gradient-to-br from-primary/10 via-secondary to-accent/10"
           />
         </motion.div>
       </div>
