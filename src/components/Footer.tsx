@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle, Instagram } from "lucide-react";
 import logo from "@/assets/logo.jpeg";
 
 const Footer = () => (
@@ -22,15 +22,25 @@ const Footer = () => (
         </div>
 
         <div>
-          <h4 className="font-semibold text-primary-foreground mb-4 font-sans">WhatsApp</h4>
-          <a
-            href="https://wa.me/5563984347495"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent/20 text-accent hover:bg-accent/30 transition-colors font-semibold"
-          >
-            <MessageCircle className="w-5 h-5" /> Fale Conosco
-          </a>
+          <h4 className="font-semibold text-primary-foreground mb-4 font-sans">Redes Sociais</h4>
+          <div className="flex flex-col gap-3">
+            <a
+              href="https://wa.me/5563984347495"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent/20 text-accent hover:bg-accent/30 transition-colors font-semibold"
+            >
+              <MessageCircle className="w-5 h-5" /> Fale Conosco
+            </a>
+            <a
+              href="https://www.instagram.com/mstransporteeturismo?igsh=MXNoNzVuMnh5eHp3YQ=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent/20 text-accent hover:bg-accent/30 transition-colors font-semibold"
+            >
+              <Instagram className="w-5 h-5" /> @mstransporteeturismo
+            </a>
+          </div>
         </div>
       </div>
 
