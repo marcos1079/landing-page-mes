@@ -54,7 +54,7 @@ const VideoSection = () => {
             muted
             loop
             playsInline
-            className="w-full aspect-video object-cover"
+            className="w-full aspect-video object-contain bg-black"
           />
         </motion.div>
       </div>
