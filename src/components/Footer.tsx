@@ -16,7 +16,7 @@ const Footer = () => (
           <h4 className="font-semibold text-primary-foreground mb-4 font-sans">Contato</h4>
           <ul className="space-y-3 text-primary-foreground/70">
             <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-accent" /> (63) 98434-7495</li>
-            <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-accent" /> contato@vanexpress.com.br</li>
+            <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-accent" /> mesescolar@hotmail.com</li>
             <li className="flex items-center gap-2"><MapPin className="w-4 h-4 text-accent" /> Palmas, TO</li>
           </ul>
         </div>
