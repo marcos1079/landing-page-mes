@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ShieldCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/logo.jpeg";
+import logo from "@/assets/logo-transparente.png";
 
 interface Props {
   isAdmin: boolean;
@@ -20,9 +20,13 @@ const Navbar = ({ isAdmin, onToggleAdmin }: Props) => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border/50">
-      <div className="container flex items-center justify-between h-16">
+      <div className="container flex items-center justify-between h-20">
         <a href="#" className="flex items-center">
-          <img src={logo} alt="M&S Transporte e Turismo" className="h-10" />
+          <img
+  src={logo}
+  alt="M&S Transporte e Turismo"
+  className="h-40 w-auto object-contain"
+/>
         </a>
 
         <div className="hidden md:flex items-center gap-8">

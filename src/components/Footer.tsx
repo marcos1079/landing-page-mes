@@ -1,12 +1,16 @@
 import { Phone, Mail, MapPin, Instagram } from "lucide-react";
-import logo from "@/assets/logo.jpeg";
+import logo from "@/assets/logo-transparente.png";
 
 const Footer = () => (
   <footer className="py-16" style={{ background: "var(--hero-gradient)" }}>
     <div className="container">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         <div>
-          <img src={logo} alt="M&S Transporte e Turismo" className="h-12 mb-4 brightness-0 invert" />
+          <img
+  src={logo}
+  alt="M&S Transporte e Turismo"
+  className="h-[140px] w-auto mb-15 brightness-0 invert object-contain"
+/>
           <p className="text-primary-foreground/60 leading-relaxed">
             Transporte executivo com conforto, segurança e pontualidade. Sua viagem começa aqui.
           </p>
@@ -16,7 +20,7 @@ const Footer = () => (
           <h4 className="font-semibold text-primary-foreground mb-4 font-sans">Contato</h4>
           <ul className="space-y-3 text-primary-foreground/70">
             <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-accent" /> (63) 98434-7495</li>
-            <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-accent" /> mesescolar@hotmail.com</li>
+            <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-accent" /> comercial@mestransporteeturismo.com.br</li>
             <li className="flex items-center gap-2"><MapPin className="w-4 h-4 text-accent" /> Palmas, TO</li>
           </ul>
         </div>
@@ -40,6 +44,7 @@ const Footer = () => (
             >
               <Instagram className="w-5 h-5" /> @mstransporteeturismo
             </a>
+            
           </div>
         </div>
       </div>

@@ -20,10 +20,14 @@ const Menubar = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <MenubarPrimitive.Root
     ref={ref}
-    className={cn("flex h-10 items-center space-x-1 rounded-md border bg-background p-1", className)}
+    className={cn(
+      "flex h-20 w-full items-center justify-between px-8 bg-white border-b shadow-sm",
+      className
+    )}
     {...props}
   />
 ));
+
 Menubar.displayName = MenubarPrimitive.Root.displayName;
 
 const MenubarTrigger = React.forwardRef<
@@ -33,12 +37,13 @@ const MenubarTrigger = React.forwardRef<
   <MenubarPrimitive.Trigger
     ref={ref}
     className={cn(
-      "flex cursor-default select-none items-center rounded-sm px-3 py-1.5 text-sm font-medium outline-none data-[state=open]:bg-accent data-[state=open]:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-      className,
+      "flex items-center px-4 py-2 text-[16px] font-medium text-gray-600 hover:text-black rounded-md outline-none transition-all",
+      className
     )}
     {...props}
   />
 ));
+
 MenubarTrigger.displayName = MenubarPrimitive.Trigger.displayName;
 
 const MenubarSubTrigger = React.forwardRef<
