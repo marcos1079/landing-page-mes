@@ -34,7 +34,7 @@ const VideoSection = () => {
           className="text-center mb-12"
         >
           <span className="text-accent font-semibold text-sm tracking-widest uppercase">
-            Conheça a M&S
+            Conheça a M&S Transpote e Turismo
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3">
             Apresentação da Empresa

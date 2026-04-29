@@ -3,22 +3,72 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { toast } from "sonner";
 import { Send } from "lucide-react";
 
-const BookingForm = () => {
-  const [form, setForm] = useState({ nome: "", whatsapp: "", data: "", servico: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.nome || !form.whatsapp || !form.data || !form.servico) {
-      toast.error("Preencha todos os campos.");
-      return;
+const BookingForm = () => {
+  const [form, setForm] = useState({
+    nome: "",
+    whatsapp: "",
+    data: "",
+    servico: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [enviado, setEnviado] = useState(false);
+
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  if (!form.nome || !form.whatsapp || !form.data || !form.servico) {
+    toast.error("Preencha todos os campos.");
+    return;
+  }
+
+  setLoading(true);
+
+  try {
+    const response = await fetch("http://localhost:3001/api/pre-reserva", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      toast.success(
+        "Pré-reserva enviada com sucesso! Nossa equipe entrará em contato em breve."
+      );
+
+      setEnviado(true);
+
+      setForm({
+        nome: "",
+        whatsapp: "",
+        data: "",
+        servico: "",
+      });
+    } else {
+      toast.error(data.message || "Erro ao enviar pré-reserva.");
     }
-    toast.success("Pré-reserva enviada com sucesso! Entraremos em contato pelo WhatsApp.");
-    setForm({ nome: "", whatsapp: "", data: "", servico: "" });
-  };
+  } catch (error) {
+    console.error(error);
+    toast.error("Erro ao conectar com o servidor.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <section id="reserva" className="py-24 bg-background">
@@ -30,9 +80,17 @@ const BookingForm = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <span className="text-accent font-semibold text-sm tracking-widest uppercase">Agende já</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3">Faça Sua Pré-Reserva</h2>
-          <p className="text-muted-foreground mt-3">Preencha o formulário e retornaremos rapidamente pelo WhatsApp.</p>
+          <span className="text-accent font-semibold text-sm tracking-widest uppercase">
+            Agende já
+          </span>
+
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3">
+            Faça Sua Pré-Reserva
+          </h2>
+
+          <p className="text-muted-foreground mt-3">
+            Preencha o formulário e retornaremos rapidamente pelo WhatsApp.
+          </p>
         </motion.div>
 
         <motion.form
@@ -49,7 +107,9 @@ const BookingForm = () => {
               id="nome"
               placeholder="Seu nome"
               value={form.nome}
-              onChange={(e) => setForm({ ...form, nome: e.target.value })}
+              onChange={(e) =>
+                setForm({ ...form, nome: e.target.value })
+              }
             />
           </div>
 
@@ -59,7 +119,9 @@ const BookingForm = () => {
               id="whatsapp"
               placeholder="(00) 00000-0000"
               value={form.whatsapp}
-              onChange={(e) => setForm({ ...form, whatsapp: e.target.value })}
+              onChange={(e) =>
+                setForm({ ...form, whatsapp: e.target.value })
+              }
             />
           </div>
 
@@ -68,28 +130,63 @@ const BookingForm = () => {
             <Input
               id="data"
               type="date"
+              min={new Date().toISOString().split("T")[0]}
               value={form.data}
-              onChange={(e) => setForm({ ...form, data: e.target.value })}
+              onChange={(e) =>
+                setForm({
+                  ...form,
+                  data: e.target.value,
+                })
+              }
             />
           </div>
 
           <div className="space-y-2">
             <Label>Tipo de Serviço</Label>
-            <Select value={form.servico} onValueChange={(v) => setForm({ ...form, servico: v })}>
+            <Select
+              value={form.servico}
+              onValueChange={(v) =>
+                setForm({ ...form, servico: v })
+              }
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Selecione o serviço" />
               </SelectTrigger>
+
               <SelectContent>
-                <SelectItem value="corporativo">Aluguel para Empresas</SelectItem>
-                <SelectItem value="grupo">Viagens em Grupo</SelectItem>
-                <SelectItem value="aeroporto">Translado Aeroporto</SelectItem>
-                <SelectItem value="evento">Eventos Especiais</SelectItem>
+                <SelectItem value="Aluguel para Empresas">
+                  Aluguel para Empresas
+                </SelectItem>
+
+                <SelectItem value="Viagens em Grupo">
+                  Viagens em Grupo
+                </SelectItem>
+
+                <SelectItem value="Translado Aeroporto">
+                  Translado Aeroporto
+                </SelectItem>
+
+                <SelectItem value="Eventos Especiais">
+                  Eventos Especiais
+                </SelectItem>
               </SelectContent>
             </Select>
           </div>
 
-          <Button type="submit" variant="hero" size="lg" className="w-full py-6 text-lg">
-            <Send className="w-5 h-5 mr-2" /> Enviar Pré-Reserva
+          <Button
+            type="submit"
+  variant="hero"
+  size="lg"
+  className="w-full py-6 text-lg"
+  disabled={loading || enviado}
+>
+  <Send className="w-5 h-5 mr-2" />
+
+  {loading
+    ? "Enviando..."
+    : enviado
+    ? "Pré-Reserva Enviada ✓"
+    : "Enviar Pré-Reserva"}
           </Button>
         </motion.form>
       </div>
