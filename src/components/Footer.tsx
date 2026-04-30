@@ -1,5 +1,5 @@
 import { Phone, Mail, MapPin, Instagram } from "lucide-react";
-import logo from "@/assets/logo-transparente.png";
+import logo from "@/assets/white.png";
 
 const Footer = () => (
   <footer className="bg-[#0f1f3d] text-white py-10">

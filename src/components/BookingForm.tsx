@@ -25,7 +25,7 @@ const BookingForm = () => {
   const [loading, setLoading] = useState(false);
   const [enviado, setEnviado] = useState(false);
 
-const handleSubmit = async (e: React.FormEvent) => {
+const handleSubmit = (e: React.FormEvent) => {
   e.preventDefault();
 
   if (!form.nome || !form.whatsapp || !form.data || !form.servico) {
@@ -33,41 +33,18 @@ const handleSubmit = async (e: React.FormEvent) => {
     return;
   }
 
-  setLoading(true);
+  const numero = "5563984347495"; // número da empresa
 
-  try {
-    const response = await fetch("http://localhost:3001/api/pre-reserva", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
-    });
+  const mensagem = `Olá! Gostaria de fazer uma pré-reserva:
 
-    const data = await response.json();
+👤 Nome: ${form.nome}
+📱 WhatsApp: ${form.whatsapp}
+📅 Data: ${form.data}
+🚌 Serviço: ${form.servico}`;
 
-    if (data.success) {
-      toast.success(
-        "Pré-reserva enviada com sucesso! Nossa equipe entrará em contato em breve."
-      );
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
 
-      setEnviado(true);
-
-      setForm({
-        nome: "",
-        whatsapp: "",
-        data: "",
-        servico: "",
-      });
-    } else {
-      toast.error(data.message || "Erro ao enviar pré-reserva.");
-    }
-  } catch (error) {
-    console.error(error);
-    toast.error("Erro ao conectar com o servidor.");
-  } finally {
-    setLoading(false);
-  }
+  window.open(url, "_blank");
 };
 
   return (
@@ -168,6 +145,9 @@ const handleSubmit = async (e: React.FormEvent) => {
 
                 <SelectItem value="Eventos Especiais">
                   Eventos Especiais
+                </SelectItem>
+                <SelectItem value="Outros Serviços">
+                  Outros Serviços
                 </SelectItem>
               </SelectContent>
             </Select>
